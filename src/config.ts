@@ -9,7 +9,7 @@ const schema = z.object({
 export const parsed = schema.safeParse(process.env);
 
 if (!parsed.success) {
-  throw new Error('❌ Invalid environment variables: ' + JSON.stringify(parsed.error.format(), null, 4));
+  throw new Error('❌ Invalid environment variables: ' + JSON.stringify(parsed.error.format(), undefined, 4));
 }
 
-export const env = parsed.data;
+export const environment = parsed.data;
